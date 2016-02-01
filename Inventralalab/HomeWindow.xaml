@@ -1,0 +1,17 @@
+﻿<Window x:Class="Inventralalab.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="HomeWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="321*"/>
+            <ColumnDefinition Width="77*"/>
+            <ColumnDefinition Width="119*"/>
+        </Grid.ColumnDefinitions>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="31,78,0,0" VerticalAlignment="Top" Width="74" Height="20"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="31,126,0,0" VerticalAlignment="Top" Width="76" Height="20"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="31,176,0,0" VerticalAlignment="Top" Width="74" Height="20"/>
+
+
+    </Grid>
+</Window>
