@@ -8,16 +8,16 @@
         Title="Statistik Peminjaman"  Height="350" Width="525">
     <Grid>
         <GridSplitter x:Name="gridSplitter" HorizontalAlignment="Left" Height="319" Margin="150,0,0,0" VerticalAlignment="Top" Width="1" Background="Black"/>
-        <WrapPanel HorizontalAlignment="Left" Height="319" VerticalAlignment="Top" Width="150">
-            <Button x:Name="Peminjaman" Content="Peminjaman Alat" HorizontalAlignment="Left" Height="30" Margin="20,40,0,0" VerticalAlignment="Top" Width="110" Background="#FFDDDDDD"/>
-            <Button x:Name="Penambahan" Content="Manajemen Alat" HorizontalAlignment="Left" Height="30" Margin="20,40,0,0" VerticalAlignment="Top" Width="110"/>
-            <Button x:Name="Cek" Content="Cek Peminjaman" HorizontalAlignment="Left" Height="30" Margin="20,40,0,0" VerticalAlignment="Top" Width="110"/>
-            <Button x:Name="Statistik" Content="Statistik Peminjaman" HorizontalAlignment="Left" Height="30" Margin="20,40,0,0" VerticalAlignment="Top" Width="110"/>
-        </WrapPanel>
-        <TextBlock x:Name="Judul" Margin="215,21,53,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" Height="36" Text="Statistik Peminjaman"/>
+        <TextBlock x:Name="Label_Judul" Margin="215,21,53,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" Height="36" Text="Statistik Peminjaman"/>
 
-        <Image x:Name="image" Source="F:\Kuliah\PPL\Tubes 1\contoh.jpg" HorizontalAlignment="Left" Height="203" Margin="183,69,0,0" VerticalAlignment="Top" Width="301"/>
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="195,273,0,0" VerticalAlignment="Top" Width="271"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="195,246,0,0" TextWrapping="Wrap" Text="Pilih Statisktik" VerticalAlignment="Top" Height="22" Width="97" FontSize="14.667"/>
+        <Image x:Name="Statistik_seharusnya_di_sini" Source="F:\Kuliah\PPL\Tubes 1\contoh.jpg" HorizontalAlignment="Left" Height="203" Margin="183,69,0,0" VerticalAlignment="Top" Width="301"/>
+        <ComboBox x:Name="comboBox_Jenis_Statistik" HorizontalAlignment="Left" Margin="195,273,0,0" VerticalAlignment="Top" Width="271"/>
+        <TextBlock x:Name="Label_Pilih_Statistik" HorizontalAlignment="Left" Margin="195,246,0,0" TextWrapping="Wrap" Text="Pilih Statisktik" VerticalAlignment="Top" Height="22" Width="97" FontSize="14.667"/>
+        <WrapPanel HorizontalAlignment="Left" Height="319" VerticalAlignment="Top" Width="150">
+            <Button x:Name="Button_Peminjaman" Content="Peminjaman Alat" HorizontalAlignment="Left" Height="30" Margin="20,40,0,0" VerticalAlignment="Top" Width="110" Background="#FFDDDDDD"/>
+            <Button x:Name="Button_Manajemen" Content="Manajemen Alat" HorizontalAlignment="Left" Height="30" Margin="20,40,0,0" VerticalAlignment="Top" Width="110"/>
+            <Button x:Name="Button_Cek" Content="Cek Peminjaman" HorizontalAlignment="Left" Height="30" Margin="20,40,0,0" VerticalAlignment="Top" Width="110"/>
+            <Button x:Name="Button_Statistik" Content="Statistik Peminjaman" HorizontalAlignment="Left" Height="30" Margin="20,40,0,0" VerticalAlignment="Top" Width="110"/>
+        </WrapPanel>
     </Grid>
 </Window>

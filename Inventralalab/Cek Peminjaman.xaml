@@ -8,33 +8,18 @@
         Title="Cek Peminjaman" Height="350" Width="525">
     <Grid>
         <GridSplitter x:Name="gridSplitter" HorizontalAlignment="Left" Height="319" Margin="150,0,0,0" VerticalAlignment="Top" Width="1" Background="Black"/>
-        <WrapPanel HorizontalAlignment="Left" Height="319" VerticalAlignment="Top" Width="150">
-            <Button x:Name="Peminjaman" Content="Peminjaman Alat" HorizontalAlignment="Left" Height="30" Margin="20,40,0,0" VerticalAlignment="Top" Width="110" Background="#FFDDDDDD"/>
-            <Button x:Name="Penambahan" Content="Manajemen Alat" HorizontalAlignment="Left" Height="30" Margin="20,40,0,0" VerticalAlignment="Top" Width="110"/>
-            <Button x:Name="Cek" Content="Cek Peminjaman" HorizontalAlignment="Left" Height="30" Margin="20,40,0,0" VerticalAlignment="Top" Width="110"/>
-            <Button x:Name="Statistik" Content="Statistik Peminjaman" HorizontalAlignment="Left" Height="30" Margin="20,40,0,0" VerticalAlignment="Top" Width="110"/>
-        </WrapPanel>
         <StackPanel HorizontalAlignment="Left" Height="280" Margin="150,0,0,0" VerticalAlignment="Top" Width="367">
             <WrapPanel Height="70">
-                <TextBlock x:Name="textBlock"  Margin="10,10,0,0" TextWrapping="Wrap"><Run Text="Putra"/><LineBreak/><Run Text="08XXXXXXXXXXXXXX"/><LineBreak/><Run Text="Tanggal Meminjam"/></TextBlock>
-                <Button x:Name="button" Content="Ubah Status" Margin="150,30,0,0" Width="75" Height="22"/>
+                <TextBlock x:Name="textBlock_Data_Peminjaman"  Margin="10,10,0,0" TextWrapping="Wrap"><Run Text="Putra"/><LineBreak/><Run Text="08XXXXXXXXXXXXXX"/><LineBreak/><Run Text="Tanggal Meminjam"/></TextBlock>
+                <Button x:Name="Button_Ubah_Status" Content="Ubah Status" Margin="150,30,0,0" Width="75" Height="22"/>
                 <GridSplitter x:Name="gridSplitter1" Height="1" Margin="0,10,0,0" Width="370" Background="Black"/>
             </WrapPanel>
-            <WrapPanel Height="70">
-                <TextBlock x:Name="textBlock1"  Margin="10,10,0,0" TextWrapping="Wrap"><Run Text="Putri"/><LineBreak/><Run Text="08XXXXXXXXXXXXXX"/><LineBreak/><Run Text="Tanggal Meminjam"/></TextBlock>
-                <Button x:Name="button1" Content="Ubah Status" Margin="150,30,0,0" Width="75" Height="22"/>
-                <GridSplitter x:Name="gridSplitter3" Height="1" Margin="0,10,0,0" Width="370" Background="Black"/>
-            </WrapPanel>
-            <WrapPanel Height="70">
-                <TextBlock x:Name="textBlock2"  Margin="10,10,0,0" TextWrapping="Wrap"><Run Text="Putra"/><LineBreak/><Run Text="08XXXXXXXXXXXXXX"/><LineBreak/><Run Text="Tanggal Meminjam"/></TextBlock>
-                <Button x:Name="button2" Content="Ubah Status" Margin="150,30,0,0" Width="75" Height="22"/>
-                <GridSplitter x:Name="gridSplitter4" Height="1" Margin="0,10,0,0" Width="370" Background="Black"/>
-            </WrapPanel>
-            <WrapPanel Height="70">
-                <TextBlock x:Name="textBlock3"  Margin="10,10,0,0" TextWrapping="Wrap"><Run Text="Putra"/><LineBreak/><Run Text="08XXXXXXXXXXXXXX"/><LineBreak/><Run Text="Tanggal Meminjam"/></TextBlock>
-                <Button x:Name="button3" Content="Ubah Status" Margin="150,30,0,0" Width="75" Height="22"/>
-                <GridSplitter x:Name="gridSplitter5" Height="1" Margin="0,10,0,0" Width="370" Background="Black"/>
-            </WrapPanel>
         </StackPanel>
+        <WrapPanel HorizontalAlignment="Left" Height="319" VerticalAlignment="Top" Width="150">
+            <Button x:Name="Button_Peminjaman" Content="Peminjaman Alat" HorizontalAlignment="Left" Height="30" Margin="20,40,0,0" VerticalAlignment="Top" Width="110" Background="#FFDDDDDD"/>
+            <Button x:Name="Button_Manajemen" Content="Manajemen Alat" HorizontalAlignment="Left" Height="30" Margin="20,40,0,0" VerticalAlignment="Top" Width="110"/>
+            <Button x:Name="Button_Cek" Content="Cek Peminjaman" HorizontalAlignment="Left" Height="30" Margin="20,40,0,0" VerticalAlignment="Top" Width="110"/>
+            <Button x:Name="Button_Statistik" Content="Statistik Peminjaman" HorizontalAlignment="Left" Height="30" Margin="20,40,0,0" VerticalAlignment="Top" Width="110"/>
+        </WrapPanel>
     </Grid>
 </Window>
