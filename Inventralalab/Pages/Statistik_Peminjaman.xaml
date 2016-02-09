@@ -14,10 +14,10 @@
         <ComboBox x:Name="comboBox_Jenis_Statistik" HorizontalAlignment="Left" Margin="195,273,0,0" VerticalAlignment="Top" Width="271"/>
         <TextBlock x:Name="Label_Pilih_Statistik" HorizontalAlignment="Left" Margin="195,246,0,0" TextWrapping="Wrap" Text="Pilih Statisktik" VerticalAlignment="Top" Height="22" Width="97" FontSize="14.667"/>
         <WrapPanel HorizontalAlignment="Left" Height="319" VerticalAlignment="Top" Width="150">
-            <Button x:Name="Button_Peminjaman" Content="Peminjaman Alat" HorizontalAlignment="Left" Height="30" Margin="20,40,0,0" VerticalAlignment="Top" Width="110" Background="#FFDDDDDD"/>
-            <Button x:Name="Button_Manajemen" Content="Manajemen Alat" HorizontalAlignment="Left" Height="30" Margin="20,40,0,0" VerticalAlignment="Top" Width="110"/>
-            <Button x:Name="Button_Cek" Content="Cek Peminjaman" HorizontalAlignment="Left" Height="30" Margin="20,40,0,0" VerticalAlignment="Top" Width="110"/>
-            <Button x:Name="Button_Statistik" Content="Statistik Peminjaman" HorizontalAlignment="Left" Height="30" Margin="20,40,0,0" VerticalAlignment="Top" Width="110"/>
+            <Button x:Name="Button_Peminjaman" Click="Button_Peminjaman_Click" Content="Peminjaman Alat" HorizontalAlignment="Left" Height="30" Margin="20,40,0,0" VerticalAlignment="Top" Width="110" Background="#FFDDDDDD"/>
+            <Button x:Name="Button_Manajemen" Click="Button_Manajemen_Click" Content="Manajemen Alat" HorizontalAlignment="Left" Height="30" Margin="20,40,0,0" VerticalAlignment="Top" Width="110"/>
+            <Button x:Name="Button_Cek" Click="Button_Cek_Click" Content="Cek Peminjaman" HorizontalAlignment="Left" Height="30" Margin="20,40,0,0" VerticalAlignment="Top" Width="110"/>
+            <Button x:Name="Button_Statistik" Click="Button_Statistik_Click" Content="Statistik Peminjaman" HorizontalAlignment="Left" Height="30" Margin="20,40,0,0" VerticalAlignment="Top" Width="110"/>
         </WrapPanel>
     </Grid>
 </UserControl>

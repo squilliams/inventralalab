@@ -24,5 +24,25 @@ namespace Inventralalab.Pages
         {
             InitializeComponent();
         }
+
+        private void Button_Peminjaman_Click(object sender, RoutedEventArgs e)
+        {
+            Switcher.Switch(new Peminjaman_Alat());
+        }
+
+        private void Button_Cek_Click(object sender, RoutedEventArgs e)
+        {
+            Switcher.Switch(new Cek_Peminjaman());
+        }
+
+        private void Button_Manajemen_Click(object sender, RoutedEventArgs e)
+        {
+            Switcher.Switch(new Manajemen_Alat());
+        }
+
+        private void Button_Statistik_Click(object sender, RoutedEventArgs e)
+        {
+            Switcher.Switch(new Statistik_Peminjaman());
+        }
     }
 }
