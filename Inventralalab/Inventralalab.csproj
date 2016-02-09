@@ -87,6 +87,9 @@
     <Compile Include="Pages\Peminjaman_Alat.xaml.cs">
       <DependentUpon>Peminjaman_Alat.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\TambahAlat.xaml.cs">
+      <DependentUpon>TambahAlat.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Switcher.cs" />
     <Page Include="MainWindow.xaml">
       <SubType>Designer</SubType>
@@ -109,6 +112,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Statistik_Peminjaman.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\TambahAlat.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

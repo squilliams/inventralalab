@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="350" d:DesignWidth="525">
     <Grid Margin="0,0,-217,-19">
-        <GridSplitter x:Name="gridSplitter" HorizontalAlignment="Left" Height="319" Margin="150,0,0,0" VerticalAlignment="Top" Width="1" Background="Black"/>
+        <GridSplitter x:Name="gridSplitter" HorizontalAlignment="Left" Height="350" Margin="150,0,0,0" VerticalAlignment="Top" Width="1" Background="Black"/>
         <TextBlock x:Name="Label_Judul" Margin="215,21,53,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" Height="36" Text="Statistik Peminjaman"/>
 
         <Image x:Name="Statistik_seharusnya_di_sini" Source="/Inventralalab;component/contoh1.jpg" HorizontalAlignment="Left" Height="203" Margin="183,69,0,0" VerticalAlignment="Top" Width="301"/>

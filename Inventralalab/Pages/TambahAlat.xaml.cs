@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Inventralalab.Pages
 {
     /// <summary>
-    /// Interaction logic for Manajemen_Alat.xaml
+    /// Interaction logic for TambahAlat.xaml
     /// </summary>
-    public partial class Manajemen_Alat : UserControl
+    public partial class TambahAlat : UserControl
     {
-        public Manajemen_Alat()
+        public TambahAlat()
         {
             InitializeComponent();
         }
@@ -45,19 +45,14 @@ namespace Inventralalab.Pages
             Switcher.Switch(new Statistik_Peminjaman());
         }
 
-        private void Button_Ubah_Click(object sender, RoutedEventArgs e)
+        private void Button_Simpan_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void Button_Hapus_Click(object sender, RoutedEventArgs e)
+        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
-        }
-
-        private void Button_Tambah_Alat_Click(object sender, RoutedEventArgs e)
-        {
-            Switcher.Switch(new TambahAlat());
         }
     }
 }
