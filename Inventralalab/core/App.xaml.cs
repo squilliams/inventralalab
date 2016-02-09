@@ -13,5 +13,12 @@ namespace Inventralalab
     /// </summary>
     public partial class App : Application
     {
+        protected void Initialize() {
+            // TODO: Create table if not existed
+        }
+        protected override void OnStartup(StartupEventArgs e) {
+            base.OnStartup(e);
+            this.Initialize();
+        }
     }
 }

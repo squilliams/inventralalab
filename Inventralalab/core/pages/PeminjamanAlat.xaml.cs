@@ -16,33 +16,55 @@ using System.Windows.Shapes;
 namespace Inventralalab.Pages
 {
     /// <summary>
-    /// Interaction logic for Cek_Peminjaman.xaml
+    /// Interaction logic for Peminjaman_Alat.xaml
     /// </summary>
-    public partial class Cek_Peminjaman : UserControl
+    public partial class PeminjamanAlat : UserControl
     {
-        public Cek_Peminjaman()
+        public PeminjamanAlat()
         {
             InitializeComponent();
+            textbox_Nama.Text = "Masukkan nama";
+            textbox_Nomor_HP.Text = "Masukkan Nomor HP";
         }
 
         private void Button_Peminjaman_Click(object sender, RoutedEventArgs e)
         {
-            Switcher.Switch(new Peminjaman_Alat());
+            Switcher.Switch(new PeminjamanAlat());
         }
 
         private void Button_Cek_Click(object sender, RoutedEventArgs e)
         {
-            Switcher.Switch(new Cek_Peminjaman());
+            Switcher.Switch(new CekPeminjaman());
         }
 
         private void Button_Manajemen_Click(object sender, RoutedEventArgs e)
         {
-            Switcher.Switch(new Manajemen_Alat());
+            Switcher.Switch(new ManajemenAlat());
         }
 
         private void Button_Statistik_Click(object sender, RoutedEventArgs e)
         {
-            Switcher.Switch(new Statistik_Peminjaman());
+            Switcher.Switch(new StatistikPeminjaman());
+        }
+
+        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void radioButton_Mahasiswa_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void radioButton_Dosen_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void radioButton_Pegawai_Checked(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

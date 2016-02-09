@@ -16,33 +16,33 @@ using System.Windows.Shapes;
 namespace Inventralalab.Pages
 {
     /// <summary>
-    /// Interaction logic for Statistik_Peminjaman.xaml
+    /// Interaction logic for Manajemen_Alat.xaml
     /// </summary>
-    public partial class Statistik_Peminjaman : UserControl
+    public partial class ManajemenAlat : UserControl
     {
-        public Statistik_Peminjaman()
+        public ManajemenAlat()
         {
             InitializeComponent();
         }
 
         private void Button_Peminjaman_Click(object sender, RoutedEventArgs e)
         {
-            Switcher.Switch(new Peminjaman_Alat());
+            Switcher.Switch(new PeminjamanAlat());
         }
 
         private void Button_Cek_Click(object sender, RoutedEventArgs e)
         {
-            Switcher.Switch(new Cek_Peminjaman());
+            Switcher.Switch(new CekPeminjaman());
         }
 
         private void Button_Manajemen_Click(object sender, RoutedEventArgs e)
         {
-            Switcher.Switch(new Manajemen_Alat());
+            Switcher.Switch(new ManajemenAlat());
         }
 
         private void Button_Statistik_Click(object sender, RoutedEventArgs e)
         {
-            Switcher.Switch(new Statistik_Peminjaman());
+            Switcher.Switch(new StatistikPeminjaman());
         }
     }
 }

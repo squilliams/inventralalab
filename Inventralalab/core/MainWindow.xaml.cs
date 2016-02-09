@@ -24,7 +24,7 @@ namespace Inventralalab
         {
             InitializeComponent();
             Switcher.pageSwitcher = this;
-            Switcher.Switch(new Peminjaman_Alat());
+            Switcher.Switch(new PeminjamanAlat());
         }
 
         public void Navigate(UserControl nextPage)
