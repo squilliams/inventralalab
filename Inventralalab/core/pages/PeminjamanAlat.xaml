@@ -16,7 +16,7 @@
         <DatePicker x:Name="Date_Peminjaman" HorizontalAlignment="Left" Margin="165,196,0,0" VerticalAlignment="Top"/>
         <DatePicker x:Name="Date_Pengembalian" HorizontalAlignment="Left" Margin="324,196,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="textbox_Nama" HorizontalAlignment="Left" Height="16" Margin="249,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" TextChanged="textBox_TextChanged"/>
-        <ComboBox x:Name="comboBox_Jenis_Barang" HorizontalAlignment="Left" Margin="249,143,0,0" VerticalAlignment="Top" Width="224" Height="16"/>
+        <ComboBox x:Name="comboBox_Jenis_Barang" HorizontalAlignment="Left" Margin="249,143,0,0" VerticalAlignment="Top" Width="224" Height="16" ItemsSource="{Binding}"/>
         <Expander x:Name="expander_Tambah_Barang" Header="Tambah barang" HorizontalAlignment="Left" Margin="165,257,0,0" VerticalAlignment="Top">
             <Grid Background="#FFE5E5E5">
                 <Grid.ColumnDefinitions>

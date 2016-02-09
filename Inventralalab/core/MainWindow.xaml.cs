@@ -23,16 +23,15 @@ namespace Inventralalab
         public MainWindow()
         {
             InitializeComponent();
-            this.conn = db.Connection.Instance;
-            Switcher.pageSwitcher = this;
-            Switcher.Switch(new PeminjamanAlat());
+            if (db.ConnectionManager.Connection != null) {
+                Switcher.pageSwitcher = this;
+                Switcher.Switch(new PeminjamanAlat());
+            }
         }
 
         public void Navigate(UserControl nextPage)
         {
             this.Content = nextPage;
         }
-
-        private db.Connection conn;
     }
 }

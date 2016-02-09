@@ -22,29 +22,5 @@ namespace Inventralalab.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("root")]
-        public string db_user {
-            get {
-                return ((string)(this["db_user"]));
-            }
-            set {
-                this["db_user"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("pR0pH3Tar1a")]
-        public string db_pass {
-            get {
-                return ((string)(this["db_pass"]));
-            }
-            set {
-                this["db_pass"] = value;
-            }
-        }
     }
 }

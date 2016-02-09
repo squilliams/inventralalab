@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,6 +26,14 @@ namespace Inventralalab.Pages
             InitializeComponent();
             textbox_Nama.Text = "Masukkan nama";
             textbox_Nomor_HP.Text = "Masukkan Nomor HP";
+            
+            string query = "SELECT * FROM master_inventory_type";
+            MySql.Data.MySqlClient.MySqlDataAdapter dataAdapter =
+                new MySql.Data.MySqlClient.MySqlDataAdapter(query, db.ConnectionManager.Connection);
+            DataSet dataSet = new DataSet();
+            dataAdapter.Fill(dataSet);
+            comboBox_Jenis_Barang.ItemsSource = dataSet.Tables[0].DefaultView;
+            comboBox_Jenis_Barang.DisplayMemberPath = dataSet.Tables[0].Columns["nama"].ToString();
         }
 
         private void Button_Peminjaman_Click(object sender, RoutedEventArgs e)

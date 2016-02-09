@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 using System.Windows;
 
 namespace Inventralalab.db {
-    public class Connection {
-        private Connection() {
+    public class ConnectionManager {
+        private ConnectionManager() {
             string connString = "server=127.0.0.1; port=5715; database=inventralalab;";
             string username = Properties.Settings.Default.db_user;
             string password = Properties.Settings.Default.db_pass;
@@ -15,9 +15,9 @@ namespace Inventralalab.db {
                 connString += "uid=" + username + ";";
                 if (password != null) connString += "pwd=" + password + ";";
                 try {
-                    conn = new MySql.Data.MySqlClient.MySqlConnection();
-                    conn.ConnectionString = connString;
-                    conn.Open();
+                    this.connection = new MySql.Data.MySqlClient.MySqlConnection();
+                    this.connection.ConnectionString = connString;
+                    this.connection.Open();
                 }
                 catch (MySql.Data.MySqlClient.MySqlException ex) {
                     MessageBox.Show(ex.Message);
@@ -26,16 +26,15 @@ namespace Inventralalab.db {
             else {
             }
         }
-        private MySql.Data.MySqlClient.MySqlConnection conn;
+        
 
-        private static Connection instance;
-        public static Connection Instance {
+        private static ConnectionManager instance;
+        private MySql.Data.MySqlClient.MySqlConnection connection;
+
+        public static MySql.Data.MySqlClient.MySqlConnection Connection {
             get {
-                if (instance == null) Connection.instance = new Connection();
-                return Connection.instance;
-            }
-            private set { 
-                Connection.instance = value; 
+                if (instance == null) ConnectionManager.instance = new ConnectionManager();
+                return ConnectionManager.instance.connection;
             }
         }
     }
