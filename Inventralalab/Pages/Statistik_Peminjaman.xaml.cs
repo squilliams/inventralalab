@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Inventralalab
+namespace Inventralalab.Pages
 {
     /// <summary>
-    /// Interaction logic for Cek_Peminjaman.xaml
+    /// Interaction logic for Statistik_Peminjaman.xaml
     /// </summary>
-    public partial class Cek_Peminjaman : Window
+    public partial class Statistik_Peminjaman : UserControl
     {
-        public Cek_Peminjaman()
+        public Statistik_Peminjaman()
         {
             InitializeComponent();
         }

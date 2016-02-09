@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Inventralalab
+namespace Inventralalab.Pages
 {
     /// <summary>
-    /// Interaction logic for Penambahan_Alat.xaml
+    /// Interaction logic for Manajemen_Alat.xaml
     /// </summary>
-    public partial class Penambahan_Alat : Window
+    public partial class Manajemen_Alat : UserControl
     {
-        public Penambahan_Alat()
+        public Manajemen_Alat()
         {
             InitializeComponent();
         }
