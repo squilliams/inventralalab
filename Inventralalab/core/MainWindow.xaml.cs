@@ -23,6 +23,7 @@ namespace Inventralalab
         public MainWindow()
         {
             InitializeComponent();
+            this.conn = db.Connection.Instance;
             Switcher.pageSwitcher = this;
             Switcher.Switch(new PeminjamanAlat());
         }
@@ -31,5 +32,7 @@ namespace Inventralalab
         {
             this.Content = nextPage;
         }
+
+        private db.Connection conn;
     }
 }

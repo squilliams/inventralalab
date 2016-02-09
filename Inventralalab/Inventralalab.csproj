@@ -79,24 +79,25 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="db\Connection.cs" />
     <Compile Include="core\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="core\pages\Cek_Peminjaman.xaml.cs">
-      <DependentUpon>Cek_Peminjaman.xaml</DependentUpon>
+    <Compile Include="core\pages\CekPeminjaman.xaml.cs">
+      <DependentUpon>CekPeminjaman.xaml</DependentUpon>
     </Compile>
-    <Compile Include="core\pages\Manajemen_Alat.xaml.cs">
-      <DependentUpon>Manajemen_Alat.xaml</DependentUpon>
+    <Compile Include="core\pages\ManajemenAlat.xaml.cs">
+      <DependentUpon>ManajemenAlat.xaml</DependentUpon>
     </Compile>
-    <Compile Include="core\pages\Peminjaman_Alat.xaml.cs">
-      <DependentUpon>Peminjaman_Alat.xaml</DependentUpon>
+    <Compile Include="core\pages\PeminjamanAlat.xaml.cs">
+      <DependentUpon>PeminjamanAlat.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Switcher.cs" />
+    <Compile Include="core\Switcher.cs" />
     <Page Include="core\MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="core\pages\Cek_Peminjaman.xaml">
+    <Page Include="core\pages\CekPeminjaman.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -104,22 +105,22 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="core\pages\Manajemen_Alat.xaml">
+    <Page Include="core\pages\ManajemenAlat.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="core\pages\Peminjaman_Alat.xaml">
+    <Page Include="core\pages\PeminjamanAlat.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="core\pages\Statistik_Peminjaman.xaml">
+    <Page Include="core\pages\StatistikPeminjaman.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="core\pages\Statistik_Peminjaman.xaml.cs">
-      <DependentUpon>Statistik_Peminjaman.xaml</DependentUpon>
+    <Compile Include="core\pages\StatistikPeminjaman.xaml.cs">
+      <DependentUpon>StatistikPeminjaman.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -138,6 +139,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -148,7 +150,7 @@
     <None Include="core\App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="contoh1.jpg" />
+    <Resource Include="res\contoh1.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="db\tables\" />
