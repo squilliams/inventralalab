@@ -6,9 +6,9 @@
              xmlns:local="clr-namespace:Inventralalab.Pages"
              mc:Ignorable="d" 
              d:DesignHeight="350" d:DesignWidth="525">
-    <Grid>
+    <Grid Background="#FF5D5B5B">
         <GridSplitter x:Name="gridSplitter" HorizontalAlignment="Left" Height="350" Margin="150,0,0,0" VerticalAlignment="Top" Width="1" Background="Black"/>
-        <WrapPanel HorizontalAlignment="Left" Height="319" VerticalAlignment="Top" Width="150">
+        <WrapPanel HorizontalAlignment="Left" Height="350" VerticalAlignment="Top" Width="150" Background="#FF7C6262">
             <Button x:Name="Button_Peminjaman" Click="Button_Peminjaman_Click" Content="Peminjaman Alat" HorizontalAlignment="Left" Height="30" Margin="20,40,0,0" VerticalAlignment="Top" Width="110" Background="#FFDDDDDD"/>
             <Button x:Name="Button_Manajemen" Click="Button_Manajemen_Click" Content="Manajemen Alat" HorizontalAlignment="Left" Height="30" Margin="20,40,0,0" VerticalAlignment="Top" Width="110"/>
             <Button x:Name="Button_Cek" Click="Button_Cek_Click" Content="Cek Peminjaman" HorizontalAlignment="Left" Height="30" Margin="20,40,0,0" VerticalAlignment="Top" Width="110"/>
