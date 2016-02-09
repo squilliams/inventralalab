@@ -44,5 +44,10 @@ namespace Inventralalab.Pages
         {
             Switcher.Switch(new Statistik_Peminjaman());
         }
+
+        private void Button_Ubah_Status_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

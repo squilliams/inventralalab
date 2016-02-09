@@ -44,5 +44,20 @@ namespace Inventralalab.Pages
         {
             Switcher.Switch(new Statistik_Peminjaman());
         }
+
+        private void Button_Ubah_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Hapus_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Tambah_Alat_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

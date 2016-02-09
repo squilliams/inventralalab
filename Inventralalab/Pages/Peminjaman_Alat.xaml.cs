@@ -66,5 +66,10 @@ namespace Inventralalab.Pages
         {
 
         }
+
+        private void Button_Selesai_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

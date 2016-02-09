@@ -11,7 +11,7 @@
         <StackPanel HorizontalAlignment="Left" Height="280" Margin="150,0,0,0" VerticalAlignment="Top" Width="367">
             <WrapPanel Height="70">
                 <TextBlock x:Name="textBlock_Data_Peminjaman"  Margin="10,10,0,0" TextWrapping="Wrap"><Run Text="Putra"/><LineBreak/><Run Text="08XXXXXXXXXXXXXX"/><LineBreak/><Run Text="Tanggal Meminjam"/></TextBlock>
-                <Button x:Name="Button_Ubah_Status" Content="Ubah Status" Margin="150,30,0,0" Width="75" Height="22"/>
+                <Button x:Name="Button_Ubah_Status" Content="Ubah Status" Margin="150,30,0,0" Width="75" Height="22" Click="Button_Ubah_Status_Click"/>
                 <GridSplitter x:Name="gridSplitter1" Height="1" Margin="0,10,0,0" Width="370" Background="Black"/>
             </WrapPanel>
         </StackPanel>
