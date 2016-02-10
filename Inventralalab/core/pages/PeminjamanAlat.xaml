@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:Inventralalab.Pages"
              mc:Ignorable="d" 
              d:DesignHeight="350" d:DesignWidth="525">
+    
     <Grid Background="#FF5D5B5B">
         <TextBlock x:Name="Label_Judul" Margin="231,17,43,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" Height="36" Text="Peminjaman Alat"/>
         <TextBlock x:Name="Label_Nama" HorizontalAlignment="Left" Margin="165,61,0,0" TextWrapping="Wrap" Text="Nama" VerticalAlignment="Top" Width="36"/>
@@ -30,8 +31,8 @@
         <TextBox x:Name="textbox_Nomor_HP" HorizontalAlignment="Left" Height="18" Margin="249,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" TextChanged="textBox_TextChanged"/>
         <Button x:Name="Button_Selesai" Content="Simpan" HorizontalAlignment="Left" Margin="398,271,0,0" VerticalAlignment="Top" Width="75" Click="Button_Selesai_Click"/>
         <TextBlock x:Name="Label_Kategori" HorizontalAlignment="Left" Height="17" Margin="165,91,0,0" TextWrapping="Wrap" Text="Kategori" VerticalAlignment="Top" Width="56"/>
-        <RadioButton x:Name="radioButton_Mahasiswa" Content="Mahasiswa" HorizontalAlignment="Left" Margin="249,93,0,0" VerticalAlignment="Top" Checked="radioButton_Mahasiswa_Checked"/>
-        <RadioButton x:Name="radioButton_Dosen" Content="Dosen" HorizontalAlignment="Left" Margin="339,93,0,0" VerticalAlignment="Top" Checked="radioButton_Dosen_Checked"/>
-        <RadioButton x:Name="radioButton_Pegawai" Content="Pegawai" HorizontalAlignment="Left" Margin="404,93,0,0" VerticalAlignment="Top" Checked="radioButton_Pegawai_Checked"/>
+        <RadioButton x:Name="radioButton_Dosen" Content="Dosen" HorizontalAlignment="Left" Margin="249,93,0,0" VerticalAlignment="Top" GroupName="{DynamicResource group_jenis_pengguna}"/>
+        <RadioButton x:Name="radioButton_Pegawai" Content="Pegawai" HorizontalAlignment="Left" Margin="326,93,0,0" VerticalAlignment="Top" GroupName="{DynamicResource group_jenis_pengguna}" RenderTransformOrigin="-0.8,0.571"/>
+        <RadioButton x:Name="radioButton_Mahasiswa" Content="Mahasiswa" HorizontalAlignment="Left" Margin="404,93,0,0" VerticalAlignment="Top" GroupName="{DynamicResource group_jenis_pengguna}"/>
     </Grid>
 </UserControl>

@@ -27,6 +27,7 @@ namespace Inventralalab.Pages
             textbox_Nama.Text = "Masukkan nama";
             textbox_Nomor_HP.Text = "Masukkan Nomor HP";
             
+            /*
             string query = "SELECT * FROM master_inventory_type";
             MySql.Data.MySqlClient.MySqlDataAdapter dataAdapter =
                 new MySql.Data.MySqlClient.MySqlDataAdapter(query, db.ConnectionManager.Connection);
@@ -34,6 +35,7 @@ namespace Inventralalab.Pages
             dataAdapter.Fill(dataSet);
             comboBox_Jenis_Barang.ItemsSource = dataSet.Tables[0].DefaultView;
             comboBox_Jenis_Barang.DisplayMemberPath = dataSet.Tables[0].Columns["nama"].ToString();
+            */
         }
 
         private void Button_Peminjaman_Click(object sender, RoutedEventArgs e)
@@ -61,24 +63,25 @@ namespace Inventralalab.Pages
 
         }
 
-        private void radioButton_Mahasiswa_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void radioButton_Dosen_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void radioButton_Pegawai_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void Button_Selesai_Click(object sender, RoutedEventArgs e)
         {
 
+            /* Informasi Peminjam */
+            string nama_peminjam = textbox_Nama.Text;
+            string no_hp = textbox_Nomor_HP.Text;
+            string jenis_peminjam = null;
+            if (radioButton_Dosen.IsChecked != null && radioButton_Dosen.IsChecked == true)
+                jenis_peminjam = (string)Application.Current.FindResource("jenisPeminjamDosen");
+            if (radioButton_Mahasiswa.IsChecked != null && radioButton_Mahasiswa.IsChecked == true)
+                jenis_peminjam = (string)Application.Current.FindResource("jenisPeminjamMahasiswa");
+            if (radioButton_Pegawai.IsChecked != null && radioButton_Pegawai.IsChecked == true)
+                jenis_peminjam = (string)Application.Current.FindResource("jenisPeminjamPegawai");
+
+            string jenis_barang = comboBox_Jenis_Barang.Text;
+            DateTime? tanggal_mulai = Date_Peminjaman.SelectedDate;
+            DateTime? tanggal_selesai = Date_Pengembalian.SelectedDate;
+
+                                               
         }
     }
 }
