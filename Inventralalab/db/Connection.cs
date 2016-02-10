@@ -9,8 +9,9 @@ namespace Inventralalab.db {
     public class ConnectionManager {
         private ConnectionManager() {
             string connString = "server=127.0.0.1; port=5715; database=inventralalab;";
-            string username = Properties.Settings.Default.db_user;
-            string password = Properties.Settings.Default.db_pass;
+            // TODO: input username and password
+            string username = null;
+            string password = null;
             if (username != null) {
                 connString += "uid=" + username + ";";
                 if (password != null) connString += "pwd=" + password + ";";

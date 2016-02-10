@@ -1,12 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Inventralalab.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
   <Profiles />
-  <Settings>
-    <Setting Name="db_user" Type="System.String" Scope="User">
-      <Value Profile="(Default)">root</Value>
-    </Setting>
-    <Setting Name="db_pass" Type="System.String" Scope="User">
-      <Value Profile="(Default)">pR0pH3Tar1a</Value>
-    </Setting>
-  </Settings>
+  <Settings />
 </SettingsFile>

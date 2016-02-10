@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Inventralalab.Pages
 {
     /// <summary>
-    /// Interaction logic for Cek_Peminjaman.xaml
+    /// Interaction logic for TambahAlat.xaml
     /// </summary>
-    public partial class CekPeminjaman : UserControl
+    public partial class TambahAlat : UserControl
     {
-        public CekPeminjaman()
+        public TambahAlat()
         {
             InitializeComponent();
         }
@@ -45,7 +45,12 @@ namespace Inventralalab.Pages
             Switcher.Switch(new StatistikPeminjaman());
         }
 
-        private void Button_Ubah_Status_Click(object sender, RoutedEventArgs e)
+        private void Button_Simpan_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
