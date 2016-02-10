@@ -13,7 +13,7 @@ namespace Inventralalab
     /// </summary>
     public partial class App : Application
     {
-        /*
+        
         protected void Initialize() {
             // TODO: Create table if not existed
         }
@@ -22,6 +22,6 @@ namespace Inventralalab
             base.OnStartup(e);
             this.Initialize();
         }
-         */
+
     }
 }

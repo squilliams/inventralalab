@@ -10,31 +10,29 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Inventralalab.Pages;
 
-namespace Inventralalab
-{
+namespace Inventralalab.Pages {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Login.xaml
     /// </summary>
-    public partial class MainWindow : Window
-    {
-        public MainWindow()
-        {
+    public partial class DatabaseLogin : UserControl {
+        public DatabaseLogin() {
             InitializeComponent();
-            Switcher.pageSwitcher = this;
-            if (db.ConnectionManager.Connection != null) {
-                Switcher.Switch(new PeminjamanAlat());
-            }
-            else {
-                Switcher.Switch(new DatabaseLogin());
-            }
         }
 
-        public void Navigate(UserControl nextPage)
-        {
-            Content = nextPage;
+        private void button_Connect_Click(object sender, RoutedEventArgs e) {
+            string username = textBox_Username.Text;
+            string password = textBox_Password.Text;
+
+            Properties.Settings.Default["db_user"] = username;
+            Properties.Settings.Default["db_pass"] = password;
+
+            if (db.ConnectionManager.Connection != null) {
+                Properties.Settings.Default.Save();
+                Switcher.Switch(new PeminjamanAlat());
+            }
         }
     }
 }

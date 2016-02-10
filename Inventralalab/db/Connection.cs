@@ -7,35 +7,37 @@ using System.Windows;
 
 namespace Inventralalab.db {
     public class ConnectionManager {
-        private ConnectionManager() {
-            string connString = "server=127.0.0.1; port=5715; database=inventralalab;";
-            // TODO: input username and password
-            string username = null;
-            string password = null;
-            if (username != null) {
-                connString += "uid=" + username + ";";
-                if (password != null) connString += "pwd=" + password + ";";
-                try {
-                    this.connection = new MySql.Data.MySqlClient.MySqlConnection();
-                    this.connection.ConnectionString = connString;
-                    this.connection.Open();
-                }
-                catch (MySql.Data.MySqlClient.MySqlException ex) {
-                    MessageBox.Show(ex.Message);
-                }
+        private ConnectionManager() {}
+            
+        private MySql.Data.MySqlClient.MySqlConnection OpenConnection(string username, string password) {
+            string connString = "server=" + Properties.Settings.Default.db_server + ";"
+                                + "uid=" + username + ";"
+                                + "pwd=" + password + ";"
+                                + "; port=5715; database=inventralalab;";
+
+            try {
+                connection = new MySql.Data.MySqlClient.MySqlConnection();
+                connection.ConnectionString = connString;
+                connection.Open();
+                Properties.Settings.Default.Save();
+                return connection;
             }
-            else {
+            catch (MySql.Data.MySqlClient.MySqlException ex) {
+                MessageBox.Show(ex.Message);
+                return null;
             }
         }
-        
-
-        private static ConnectionManager instance;
+        private static ConnectionManager instance = null;
         private MySql.Data.MySqlClient.MySqlConnection connection;
 
         public static MySql.Data.MySqlClient.MySqlConnection Connection {
             get {
                 if (instance == null) ConnectionManager.instance = new ConnectionManager();
-                return ConnectionManager.instance.connection;
+                if (instance.connection == null) {
+                    instance.connection = instance.OpenConnection(Properties.Settings.Default.db_user,
+                        Properties.Settings.Default.db_pass);
+                }
+                return instance.connection;
             }
         }
     }
