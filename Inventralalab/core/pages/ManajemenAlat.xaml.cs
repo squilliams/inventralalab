@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +22,49 @@ namespace Inventralalab.Pages
     /// </summary>
     public partial class ManajemenAlat : UserControl
     {
+        List<string> itemIds;
         public ManajemenAlat()
         {
             InitializeComponent();
+            RebindItems();
+        }
+
+        private void RebindItems() {
+            string query = "SELECT *, (CASE WHEN(kondisi_alat = 1) THEN \"Baik\" ELSE \"Buruk\" END) as kondisi  FROM inventory JOIN master_inventory_type";
+            try {
+                using (MySqlCommand cmd = new MySqlCommand(query, db.ConnectionManager.Connection)) {
+                    using (MySqlDataAdapter dataAdapter = new MySqlDataAdapter(cmd)) {
+                        DataTable dataTable = new DataTable();
+                        dataAdapter.Fill(dataTable);
+
+                        itemIds = new List<string>();
+                        foreach (DataRow row in dataTable.Rows) {
+                            string id = row["id"].ToString();
+                            itemIds.Add(id);
+                        }
+                        listBox_Alat.ItemsSource = dataTable.DefaultView;
+                    }
+                }
+            }
+            catch (MySqlException ex) {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void DeleteItem(string id) {
+            try {
+                string query = "DELETE FROM inventory WHERE id = @id";
+                using (MySqlCommand cmd = new MySqlCommand(query, db.ConnectionManager.Connection)) {
+                    cmd.Prepare();
+                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Delete Successful");
+                }
+            }
+            catch (MySqlException ex) {
+                MessageBox.Show(ex.Message);
+            }
+            RebindItems();
         }
 
         private void Button_Peminjaman_Click(object sender, RoutedEventArgs e)
@@ -52,7 +94,12 @@ namespace Inventralalab.Pages
 
         private void Button_Hapus_Click(object sender, RoutedEventArgs e)
         {
+            Button button = sender as Button;
+            var dataContext = button.DataContext;
+            int index = listBox_Alat.Items.IndexOf(dataContext);
 
+            string inventory_id = itemIds[index];
+            DeleteItem(inventory_id);
         }
 
         private void Button_Tambah_Alat_Click(object sender, RoutedEventArgs e)

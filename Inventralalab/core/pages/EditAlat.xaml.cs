@@ -18,7 +18,7 @@ using System.Data;
 namespace Inventralalab.Pages
 {
     /// <summary>
-    /// Interaction logic for TambahAlat.xaml
+    /// Interaction logic for EditAlat.xaml
     /// </summary>
     public partial class EditAlat : UserControl
     {

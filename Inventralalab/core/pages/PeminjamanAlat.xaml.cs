@@ -23,6 +23,7 @@ namespace Inventralalab.Pages
     /// </summary>
     public partial class PeminjamanAlat : UserControl
     {
+        
         public PeminjamanAlat()
         {
             InitializeComponent();
@@ -32,15 +33,15 @@ namespace Inventralalab.Pages
             string query = "SELECT * FROM master_inventory_type";
             using (MySqlCommand cmd = new MySqlCommand(query, db.ConnectionManager.Connection)) {
                 try {
-                    DataTable dataSet = new DataTable();
+                    DataTable dataTable = new DataTable();
                     using (MySqlDataAdapter dataAdapter = new MySqlDataAdapter(cmd)) {
-                        dataAdapter.Fill(dataSet);
-                        comboBox_Jenis_Barang.ItemsSource = dataSet.DefaultView;
-                        comboBox_Jenis_Barang.DisplayMemberPath = dataSet.Columns["nama"].ToString();
-                        comboBox_Jenis_Barang.SelectedValuePath = dataSet.Columns["id"].ToString();
+                        dataAdapter.Fill(dataTable);
+                        comboBox_Jenis_Barang.DataContext = dataTable;
+                        comboBox_Jenis_Barang.DisplayMemberPath = dataTable.Columns["nama"].ToString();
+                        comboBox_Jenis_Barang.SelectedValuePath = dataTable.Columns["id"].ToString();
                     }
                 }
-                catch (MySql.Data.MySqlClient.MySqlException ex) {
+                catch (MySqlException ex) {
                     MessageBox.Show(ex.Message);
                 }
             }
@@ -80,9 +81,21 @@ namespace Inventralalab.Pages
             if (radioButton_Pegawai.IsChecked != null && radioButton_Pegawai.IsChecked == true)
                 jenis_peminjam = (string)Application.Current.FindResource("jenisPeminjamPegawai");
 
-            string jenis_barang = comboBox_Jenis_Barang.Text;
+            string id_jenis = comboBox_Jenis_Barang.SelectedValue.ToString();
             DateTime? tanggal_mulai = Date_Peminjaman.SelectedDate;
             DateTime? tanggal_selesai = Date_Pengembalian.SelectedDate;
+
+            string query = "SELECT * FROM inventory WHERE id_jenis = @id_jenis";
+            using (MySqlCommand cmd = new MySqlCommand(query, db.ConnectionManager.Connection)) {
+                cmd.Prepare();
+                cmd.Parameters.AddWithValue("@id_jenis", id_jenis);
+
+                using (MySqlDataAdapter dataAdapter = new MySqlDataAdapter(cmd)) {
+                    DataTable dataTable = new DataTable();
+                    dataAdapter.Fill(dataTable);
+                    
+                }
+            }
         }
 
         private void textbox_Jumlah_PreviewTextInput(object sender, TextCompositionEventArgs e) {
