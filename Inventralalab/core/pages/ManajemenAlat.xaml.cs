@@ -47,7 +47,7 @@ namespace Inventralalab.Pages
 
         private void Button_Ubah_Click(object sender, RoutedEventArgs e)
         {
-
+            Switcher.Switch(new EditAlat());
         }
 
         private void Button_Hapus_Click(object sender, RoutedEventArgs e)

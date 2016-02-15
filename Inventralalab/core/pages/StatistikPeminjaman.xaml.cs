@@ -18,8 +18,11 @@ namespace Inventralalab.Pages
     /// <summary>
     /// Interaction logic for Statistik_Peminjaman.xaml
     /// </summary>
+    /// 
+
     public partial class StatistikPeminjaman : UserControl
     {
+     
         public StatistikPeminjaman()
         {
             InitializeComponent();
@@ -43,6 +46,10 @@ namespace Inventralalab.Pages
         private void Button_Statistik_Click(object sender, RoutedEventArgs e)
         {
             Switcher.Switch(new StatistikPeminjaman());
+        }
+        private void comboBox_Jenis_Statistik_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
