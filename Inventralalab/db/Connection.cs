@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using MySql.Data.MySqlClient;
+using System.IO;
 
 namespace Inventralalab.db {
     public class ConnectionManager {
@@ -20,6 +22,12 @@ namespace Inventralalab.db {
                 connection.ConnectionString = connString;
                 connection.Open();
                 Properties.Settings.Default.Save();
+                string[] files = Directory.GetFiles(System.AppDomain.CurrentDomain.BaseDirectory + "../../db/tables");
+                foreach (string file in files) {
+                    MySqlScript script = new MySqlScript(connection, File.ReadAllText(file));
+                    script.Execute();
+                }
+                
                 return connection;
             }
             catch (MySql.Data.MySqlClient.MySqlException ex) {
@@ -28,9 +36,9 @@ namespace Inventralalab.db {
             }
         }
         private static ConnectionManager instance = null;
-        private MySql.Data.MySqlClient.MySqlConnection connection;
+        private MySqlConnection connection;
 
-        public static MySql.Data.MySqlClient.MySqlConnection Connection {
+        public static MySqlConnection Connection {
             get {
                 if (instance == null) ConnectionManager.instance = new ConnectionManager();
                 if (instance.connection == null) {

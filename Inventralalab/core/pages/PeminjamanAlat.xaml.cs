@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
 
 namespace Inventralalab.Pages
 {
@@ -28,19 +29,20 @@ namespace Inventralalab.Pages
             textbox_Nama.Text = "Masukkan nama";
             textbox_Nomor_HP.Text = "Masukkan Nomor HP";
             
-            
             string query = "SELECT * FROM master_inventory_type";
-            MySql.Data.MySqlClient.MySqlDataAdapter dataAdapter =
-                new MySql.Data.MySqlClient.MySqlDataAdapter(query, db.ConnectionManager.Connection);
-            DataSet dataSet = new DataSet();
-
-            try {
-                dataAdapter.Fill(dataSet);
-                comboBox_Jenis_Barang.ItemsSource = dataSet.Tables[0].DefaultView;
-                comboBox_Jenis_Barang.DisplayMemberPath = dataSet.Tables[0].Columns["nama"].ToString();
-            }
-            catch (MySql.Data.MySqlClient.MySqlException ex) {
-                MessageBox.Show(ex.Message);
+            using (MySqlCommand cmd = new MySqlCommand(query, db.ConnectionManager.Connection)) {
+                try {
+                    DataTable dataSet = new DataTable();
+                    using (MySqlDataAdapter dataAdapter = new MySqlDataAdapter(cmd)) {
+                        dataAdapter.Fill(dataSet);
+                        comboBox_Jenis_Barang.ItemsSource = dataSet.DefaultView;
+                        comboBox_Jenis_Barang.DisplayMemberPath = dataSet.Columns["nama"].ToString();
+                        comboBox_Jenis_Barang.SelectedValuePath = dataSet.Columns["id"].ToString();
+                    }
+                }
+                catch (MySql.Data.MySqlClient.MySqlException ex) {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
 

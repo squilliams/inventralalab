@@ -14,15 +14,13 @@
             <Button x:Name="Button_Cek" Click="Button_Cek_Click" Content="Cek Peminjaman" HorizontalAlignment="Left" Height="30" Margin="20,40,0,0" VerticalAlignment="Top" Width="110"/>
             <Button x:Name="Button_Statistik" Click="Button_Statistik_Click" Content="Statistik Peminjaman" HorizontalAlignment="Left" Height="30" Margin="20,40,0,0" VerticalAlignment="Top" Width="110"/>
         </WrapPanel>
-        <Button x:Name="Button_Simpan" Content="Simpan" HorizontalAlignment="Left" Margin="393,259,0,0" VerticalAlignment="Top" Width="97" Click="Button_Simpan_Click"/>
+        <Button x:Name="Button_Simpan" Content="Simpan" HorizontalAlignment="Left" Margin="393,214,0,0" VerticalAlignment="Top" Width="97" Click="Button_Simpan_Click"/>
         <TextBlock x:Name="Label_Judul" Margin="210,22,100,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" Height="36" Text="Penambahan Alat"/>
-        <TextBlock x:Name="Label_Nama" HorizontalAlignment="Left" Margin="165,78,0,0" TextWrapping="Wrap" Text="Nama" VerticalAlignment="Top" Width="36"/>
-        <TextBlock x:Name="Label_Jenis_Barang" HorizontalAlignment="Left" Margin="165,120,0,0" TextWrapping="Wrap" Text="Jenis Barang" VerticalAlignment="Top" Width="72"/>
-        <TextBlock x:Name="Label_Jumlah" HorizontalAlignment="Left" Margin="165,197,0,0" TextWrapping="Wrap" Text="Jumlah" VerticalAlignment="Top" Width="56"/>
-        <TextBox x:Name="textbox_Nama" HorizontalAlignment="Left" Height="18" Margin="249,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" TextChanged="textBox_TextChanged"/>
-        <ComboBox x:Name="comboBox_Jenis_Barang" HorizontalAlignment="Left" Margin="249,119,0,0" VerticalAlignment="Top" Width="224" Height="18"/>
-        <TextBlock x:Name="Label_Laboratorium" HorizontalAlignment="Left" Margin="165,157,0,0" TextWrapping="Wrap" Text="Laboratorium" VerticalAlignment="Top" Width="72"/>
-        <TextBox x:Name="textbox_Laboratorium" HorizontalAlignment="Left" Height="18" Margin="249,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" TextChanged="textBox_TextChanged"/>
-        <TextBox x:Name="textbox_Jumlah" HorizontalAlignment="Left" Height="18" Margin="249,196,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" TextChanged="textBox_TextChanged"/>
+        <TextBlock x:Name="Label_Jenis_Barang" HorizontalAlignment="Left" Margin="165,122,0,0" TextWrapping="Wrap" Text="Jenis Barang" VerticalAlignment="Top" Width="72"/>
+        <ComboBox x:Name="comboBox_Jenis_Barang" HorizontalAlignment="Left" Margin="249,121,0,0" VerticalAlignment="Top" Width="224" Height="18"/>
+        <TextBlock x:Name="Label_Laboratorium" HorizontalAlignment="Left" Margin="165,159,0,0" TextWrapping="Wrap" Text="Laboratorium" VerticalAlignment="Top" Width="72"/>
+        <TextBox x:Name="textbox_Laboratorium" HorizontalAlignment="Left" Height="18" Margin="249,158,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" TextChanged="textBox_TextChanged"/>
+        <TextBlock x:Name="Label_Id" HorizontalAlignment="Left" Margin="165,85,0,0" TextWrapping="Wrap" Text="ID" VerticalAlignment="Top" Width="56"/>
+        <TextBox x:Name="textbox_Id" HorizontalAlignment="Left" Height="18" Margin="249,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" TextChanged="textBox_TextChanged"/>
     </Grid>
 </UserControl>
