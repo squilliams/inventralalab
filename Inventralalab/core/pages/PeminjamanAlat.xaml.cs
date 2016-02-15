@@ -3,6 +3,7 @@ using System.Data;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -63,11 +64,6 @@ namespace Inventralalab.Pages
             Switcher.Switch(new StatistikPeminjaman());
         }
 
-        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
         private void Button_Selesai_Click(object sender, RoutedEventArgs e)
         {
 
@@ -85,8 +81,11 @@ namespace Inventralalab.Pages
             string jenis_barang = comboBox_Jenis_Barang.Text;
             DateTime? tanggal_mulai = Date_Peminjaman.SelectedDate;
             DateTime? tanggal_selesai = Date_Pengembalian.SelectedDate;
+        }
 
-                                               
+        private void textbox_Jumlah_PreviewTextInput(object sender, TextCompositionEventArgs e) {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text); 
         }
     }
 }
