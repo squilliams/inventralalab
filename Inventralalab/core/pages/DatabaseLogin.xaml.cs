@@ -24,7 +24,7 @@ namespace Inventralalab.Pages {
 
         private void button_Connect_Click(object sender, RoutedEventArgs e) {
             string username = textBox_Username.Text;
-            string password = textBox_Password.Text;
+            string password = passwordBox_Password.Password;
 
             Properties.Settings.Default["db_user"] = username;
             Properties.Settings.Default["db_pass"] = password;
@@ -33,6 +33,10 @@ namespace Inventralalab.Pages {
                 Properties.Settings.Default.Save();
                 Switcher.Switch(new PeminjamanAlat());
             }
+        }
+
+        private void button_Exit_Click(object sender, RoutedEventArgs e) {
+            Application.Current.Shutdown();
         }
     }
 }
