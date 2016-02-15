@@ -22,9 +22,27 @@ namespace Inventralalab.Pages
     /// </summary>
     public partial class EditAlat : UserControl
     {
-        public EditAlat()
+        string ItemId { get; set; }
+        public  class KV {
+            public KV(string key, int value) {
+                Key = key;
+                Value = value;
+            }
+            public int Value { get; set; }
+            public string Key { get; set; }
+        }
+        public List<KV> status;
+        public EditAlat(string id)
         {
             InitializeComponent();
+            status = new List<KV>();
+            status.Add(new KV("Baik", 1));
+            status.Add(new KV("Rusak", 0));
+            comboBox_Status.ItemsSource = status;
+            comboBox_Status.DisplayMemberPath = "Key";
+            comboBox_Status.SelectedValuePath = "Value";
+
+            ItemId = id;
             string query = "SELECT * FROM master_inventory_type";
             using (MySqlCommand cmd = new MySqlCommand(query, db.ConnectionManager.Connection)) {
                 try {
@@ -64,21 +82,22 @@ namespace Inventralalab.Pages
 
         private void Button_Simpan_Click(object sender, RoutedEventArgs e)
         {
-            string invId = textbox_Id.Text;
             string jenisBarang = comboBox_Jenis_Barang.SelectedValue.ToString();
             string lokasi = textbox_Laboratorium.Text;
+            int kondisiBarang = int.Parse(comboBox_Status.SelectedValue.ToString());
 
-            string query = "INSERT INTO inventory(id, id_jenis, kondisi_alat, lokasi) VALUES(@id, @id_jenis, TRUE, @lokasi)";
+            string query = "UPDATE inventory SET id_jenis=@id_jenis, lokasi=@lokasi, kondisi_alat=@kondisi_alat WHERE id=@id";
             using (MySqlCommand cmd = new MySqlCommand(query, db.ConnectionManager.Connection)) {
                 cmd.Prepare();
 
-                cmd.Parameters.AddWithValue("@id", invId);
+                cmd.Parameters.AddWithValue("@id", ItemId);
                 cmd.Parameters.AddWithValue("@id_jenis", jenisBarang);
                 cmd.Parameters.AddWithValue("@lokasi", lokasi);
+                cmd.Parameters.AddWithValue("@kondisi_alat", kondisiBarang);
 
                 try {
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Penambahan Alat Berhasil");
+                    MessageBox.Show("Pengubahan Alat Berhasil");
                 }
                 catch (MySqlException ex) {
                     MessageBox.Show(ex.Message);

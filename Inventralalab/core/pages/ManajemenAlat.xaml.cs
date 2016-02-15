@@ -89,7 +89,12 @@ namespace Inventralalab.Pages
 
         private void Button_Ubah_Click(object sender, RoutedEventArgs e)
         {
-            Switcher.Switch(new EditAlat());
+            Button button = sender as Button;
+            var dataContext = button.DataContext;
+            int index = listBox_Alat.Items.IndexOf(dataContext);
+
+            string inventory_id = itemIds[index];
+            Switcher.Switch(new EditAlat(inventory_id));
         }
 
         private void Button_Hapus_Click(object sender, RoutedEventArgs e)
