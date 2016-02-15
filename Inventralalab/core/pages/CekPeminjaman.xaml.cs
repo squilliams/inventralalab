@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +25,30 @@ namespace Inventralalab.Pages
         public CekPeminjaman()
         {
             InitializeComponent();
+            RebindItems();
+        }
+
+        List<string> itemIds;
+        private void RebindItems() {
+            string query = "SELECT * FROM inventory JOIN borrowers WHERE id_peminjam IS NOT NULL";
+            try {
+                using (MySqlCommand cmd = new MySqlCommand(query, db.ConnectionManager.Connection)) {
+                    using (MySqlDataAdapter dataAdapter = new MySqlDataAdapter(cmd)) {
+                        DataTable dataTable = new DataTable();
+                        dataAdapter.Fill(dataTable);
+
+                        itemIds = new List<string>();
+                        foreach (DataRow row in dataTable.Rows) {
+                            string id = row["id"].ToString();
+                            itemIds.Add(id);
+                        }
+                        listbox_Peminjam.ItemsSource = dataTable.DefaultView;
+                    }
+                }
+            }
+            catch (MySqlException ex) {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void Button_Peminjaman_Click(object sender, RoutedEventArgs e)
