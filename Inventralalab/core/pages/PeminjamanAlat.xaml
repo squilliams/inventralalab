@@ -6,19 +6,19 @@
              xmlns:local="clr-namespace:Inventralalab.Pages"
              mc:Ignorable="d" 
              d:DesignHeight="350" d:DesignWidth="525">
-    
+
     <Grid>
         <TextBlock x:Name="Label_Judul" Margin="231,17,43,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" Height="36" Text="Peminjaman Alat"/>
-        <TextBlock x:Name="Label_Nama" HorizontalAlignment="Left" Margin="165,61,0,0" TextWrapping="Wrap" Text="Nama" VerticalAlignment="Top" Width="36"/>
-        <TextBlock x:Name="Label_Jenis_Barang" HorizontalAlignment="Left" Margin="165,151,0,0" TextWrapping="Wrap" Text="Jenis Barang" VerticalAlignment="Top" Width="72"/>
-        <TextBlock x:Name="Label_Tanggal_Peminjaman" HorizontalAlignment="Left" Margin="165,180,0,0" TextWrapping="Wrap" Text="Tanggal Peminjaman" VerticalAlignment="Top" Width="114"/>
-        <TextBlock x:Name="Label_Jumlah" HorizontalAlignment="Left" Margin="165,240,0,0" TextWrapping="Wrap" Text="Jumlah" VerticalAlignment="Top" Width="56"/>
-        <TextBlock x:Name="Label_Tanggal_Pengembalian" HorizontalAlignment="Left" Margin="324,180,0,0" TextWrapping="Wrap" Text="Tanggal Pengembalian" VerticalAlignment="Top" Width="124"/>
-        <DatePicker x:Name="Date_Peminjaman" HorizontalAlignment="Left" Margin="165,204,0,0" VerticalAlignment="Top"/>
-        <DatePicker x:Name="Date_Pengembalian" HorizontalAlignment="Left" Margin="324,204,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textbox_Nama" HorizontalAlignment="Left" Height="18" Margin="249,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" />
-        <ComboBox x:Name="comboBox_Jenis_Barang" HorizontalAlignment="Left" Margin="249,150,0,0" VerticalAlignment="Top" Width="224" Height="18" ItemsSource="{Binding}"/>
-        <TextBox x:Name="textbox_Jumlah" HorizontalAlignment="Left" Margin="249,239,0,0" VerticalAlignment="Top" Width="39" Height="18" PreviewTextInput="textbox_Jumlah_PreviewTextInput"/>
+        <TextBlock x:Name="Label_Nama" HorizontalAlignment="Left" Margin="165,86,0,0" TextWrapping="Wrap" Text="Nama" VerticalAlignment="Top" Width="36"/>
+        <TextBlock x:Name="Label_Jenis_Barang" HorizontalAlignment="Left" Margin="165,176,0,0" TextWrapping="Wrap" Text="Jenis Barang" VerticalAlignment="Top" Width="72"/>
+        <TextBlock x:Name="Label_Tanggal_Peminjaman" HorizontalAlignment="Left" Margin="165,205,0,0" TextWrapping="Wrap" Text="Tanggal Peminjaman" VerticalAlignment="Top" Width="114"/>
+        <TextBlock x:Name="Label_Jumlah" HorizontalAlignment="Left" Margin="165,265,0,0" TextWrapping="Wrap" Text="Jumlah" VerticalAlignment="Top" Width="56"/>
+        <TextBlock x:Name="Label_Tanggal_Pengembalian" HorizontalAlignment="Left" Margin="324,205,0,0" TextWrapping="Wrap" Text="Tanggal Pengembalian" VerticalAlignment="Top" Width="124"/>
+        <DatePicker x:Name="Date_Peminjaman" HorizontalAlignment="Left" Margin="165,229,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="Date_Pengembalian" HorizontalAlignment="Left" Margin="324,229,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textbox_Nama" HorizontalAlignment="Left" Height="18" Margin="249,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" />
+        <ComboBox x:Name="comboBox_Jenis_Barang" HorizontalAlignment="Left" Margin="249,175,0,0" VerticalAlignment="Top" Width="224" Height="18" ItemsSource="{Binding}"/>
+        <TextBox x:Name="textbox_Jumlah" HorizontalAlignment="Left" Margin="249,264,0,0" VerticalAlignment="Top" Width="39" Height="18" PreviewTextInput="textbox_Jumlah_PreviewTextInput"/>
 
         <WrapPanel HorizontalAlignment="Left" Height="369" VerticalAlignment="Top" Width="150">
             <Button x:Name="Button_Peminjaman" Click="Button_Peminjaman_Click" Content="Peminjaman Alat" HorizontalAlignment="Left" Height="30" Margin="20,40,0,0" VerticalAlignment="Top" Width="110" Background="#FFDDDDDD"/>
@@ -27,12 +27,14 @@
             <Button x:Name="Button_Statistik" Click="Button_Statistik_Click" Content="Statistik Peminjaman" HorizontalAlignment="Left" Height="30" Margin="20,40,0,0" VerticalAlignment="Top" Width="110"/>
         </WrapPanel>
         <GridSplitter x:Name="gridSplitter" HorizontalAlignment="Left" Height="369" Margin="150,0,0,0" VerticalAlignment="Top" Width="1" Background="Black"/>
-        <TextBlock x:Name="Label_NomorHP" HorizontalAlignment="Left" Margin="165,121,0,0" TextWrapping="Wrap" Text="Nomor HP" VerticalAlignment="Top"/>
-        <TextBox x:Name="textbox_Nomor_HP" HorizontalAlignment="Left" Height="18" Margin="249,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224"/>
-        <Button x:Name="Button_Selesai" Content="Simpan" HorizontalAlignment="Left" Margin="398,271,0,0" VerticalAlignment="Top" Width="75" Click="Button_Selesai_Click"/>
-        <TextBlock x:Name="Label_Kategori" HorizontalAlignment="Left" Height="17" Margin="165,91,0,0" TextWrapping="Wrap" Text="Kategori" VerticalAlignment="Top" Width="56"/>
-        <RadioButton x:Name="radioButton_Dosen" Content="Dosen" HorizontalAlignment="Left" Margin="249,93,0,0" VerticalAlignment="Top" GroupName="{DynamicResource group_jenis_pengguna}"/>
-        <RadioButton x:Name="radioButton_Pegawai" Content="Pegawai" HorizontalAlignment="Left" Margin="324,93,0,0" VerticalAlignment="Top" GroupName="{DynamicResource group_jenis_pengguna}" RenderTransformOrigin="-0.8,0.571"/>
-        <RadioButton x:Name="radioButton_Mahasiswa" Content="Mahasiswa" HorizontalAlignment="Left" Margin="404,93,0,0" VerticalAlignment="Top" GroupName="{DynamicResource group_jenis_pengguna}"/>
+        <TextBlock x:Name="Label_NomorHP" HorizontalAlignment="Left" Margin="165,146,0,0" TextWrapping="Wrap" Text="Nomor HP" VerticalAlignment="Top"/>
+        <TextBox x:Name="textbox_Nomor_HP" HorizontalAlignment="Left" Height="18" Margin="249,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224"/>
+        <Button x:Name="Button_Selesai" Content="Simpan" HorizontalAlignment="Left" Margin="398,296,0,0" VerticalAlignment="Top" Width="75" Click="Button_Selesai_Click"/>
+        <TextBlock x:Name="Label_Kategori" HorizontalAlignment="Left" Height="17" Margin="165,116,0,0" TextWrapping="Wrap" Text="Kategori" VerticalAlignment="Top" Width="56"/>
+        <RadioButton x:Name="radioButton_Dosen" Content="Dosen" HorizontalAlignment="Left" Margin="249,118,0,0" VerticalAlignment="Top" GroupName="{DynamicResource group_jenis_pengguna}"/>
+        <RadioButton x:Name="radioButton_Pegawai" Content="Pegawai" HorizontalAlignment="Left" Margin="324,118,0,0" VerticalAlignment="Top" GroupName="{DynamicResource group_jenis_pengguna}" RenderTransformOrigin="-0.8,0.571"/>
+        <RadioButton x:Name="radioButton_Mahasiswa" Content="Mahasiswa" HorizontalAlignment="Left" Margin="404,118,0,0" VerticalAlignment="Top" GroupName="{DynamicResource group_jenis_pengguna}"/>
+        <TextBlock x:Name="Label_Id" HorizontalAlignment="Left" Margin="165,59,0,0" TextWrapping="Wrap" Text="NIP/NIM" VerticalAlignment="Top" Width="72"/>
+        <TextBox x:Name="textbox_Id" HorizontalAlignment="Left" Height="18" Margin="249,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" />
     </Grid>
 </UserControl>

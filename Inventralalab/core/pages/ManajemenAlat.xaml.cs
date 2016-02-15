@@ -30,7 +30,7 @@ namespace Inventralalab.Pages
         }
 
         private void RebindItems() {
-            string query = "SELECT *, (CASE WHEN(kondisi_alat = 1) THEN \"Baik\" ELSE \"Buruk\" END) as kondisi  FROM inventory JOIN master_inventory_type";
+            string query = "SELECT *, (CASE WHEN(kondisi_alat = 1) THEN \"Baik\" ELSE \"Rusak\" END) as kondisi  FROM inventory JOIN master_inventory_type";
             try {
                 using (MySqlCommand cmd = new MySqlCommand(query, db.ConnectionManager.Connection)) {
                     using (MySqlDataAdapter dataAdapter = new MySqlDataAdapter(cmd)) {
