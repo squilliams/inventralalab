@@ -30,7 +30,7 @@ namespace Inventralalab.Pages
 
         List<string> itemIds;
         private void RebindItems() {
-            string query = "SELECT * FROM inventory JOIN borrowers WHERE id_peminjam IS NOT NULL";
+            string query = "SELECT * FROM inventory JOIN borrowers ON inventralalab.inventory.id_peminjam = inventralalab.borrowers.id WHERE id_peminjam IS NOT NULL";
             try {
                 using (MySqlCommand cmd = new MySqlCommand(query, db.ConnectionManager.Connection)) {
                     using (MySqlDataAdapter dataAdapter = new MySqlDataAdapter(cmd)) {

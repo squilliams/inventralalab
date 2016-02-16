@@ -132,12 +132,13 @@ namespace Inventralalab.Pages
                 }
             }
             try {
-                string query = "UPDATE inventory SET id_peminjam = @id_peminjam, tanggal_mulai = @tanggal_mulai, tanggal_selesai = @tanggal_selesai";
+                string query = "UPDATE inventory SET id_peminjam = @id_peminjam, tanggal_mulai = @tanggal_mulai, tanggal_selesai = @tanggal_selesai WHERE id = @item_id";
                 using (MySqlCommand cmd = new MySqlCommand(query, db.ConnectionManager.Connection)) {
                     cmd.Prepare();
                     cmd.Parameters.AddWithValue("@id_peminjam", borrower.Id);
                     cmd.Parameters.AddWithValue("@tanggal_mulai", tanggal_mulai);
                     cmd.Parameters.AddWithValue("@tanggal_selesai", tanggal_selesai);
+                    cmd.Parameters.AddWithValue("@item_id", item.Id);
                     cmd.ExecuteNonQuery();
                 }
             }

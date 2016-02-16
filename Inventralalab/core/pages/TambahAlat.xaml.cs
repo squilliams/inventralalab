@@ -75,7 +75,6 @@ namespace Inventralalab.Pages
                 cmd.Parameters.AddWithValue("@id", invId);
                 cmd.Parameters.AddWithValue("@id_jenis", jenisBarang);
                 cmd.Parameters.AddWithValue("@lokasi", lokasi);
-
                 try {
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Penambahan Alat Berhasil");
