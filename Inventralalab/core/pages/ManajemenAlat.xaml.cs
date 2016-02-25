@@ -104,7 +104,9 @@ namespace Inventralalab.Pages
             int index = listBox_Alat.Items.IndexOf(dataContext);
 
             string inventory_id = itemIds[index];
-            DeleteItem(inventory_id);
+            MessageBoxResult messageBoxResult = MessageBox.Show("Apakah anda yakin?", "Konfirmasi Penghapusan", MessageBoxButton.YesNo);
+            if (messageBoxResult == MessageBoxResult.Yes)
+                DeleteItem(inventory_id);
         }
 
         private void Button_Tambah_Alat_Click(object sender, RoutedEventArgs e)
