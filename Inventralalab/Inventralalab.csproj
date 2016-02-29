@@ -114,8 +114,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="core\Alat.cs" />
     <Compile Include="core\pages\EditAlat.xaml.cs">
       <DependentUpon>EditAlat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="core\pages\TambahJenisAlat.xaml.cs">
+      <DependentUpon>TambahJenisAlat.xaml</DependentUpon>
     </Compile>
     <Compile Include="db\Connection.cs" />
     <Compile Include="core\MainWindow.xaml.cs">
@@ -169,6 +173,10 @@
     <Page Include="core\pages\EditAlat.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="core\pages\TambahJenisAlat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="res\StringResources.xaml">
       <SubType>Designer</SubType>

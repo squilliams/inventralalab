@@ -20,13 +20,13 @@
                     <DataTemplate>
                         <WrapPanel Height="70">
                             <TextBlock x:Name="textBlock_DataAlat"  Margin="10,10,0,0">
-                                <Run x:Name="inventoryId" Text="{Binding id}"></Run>
+                                <Run x:Name="inventoryId" Text="{Binding Id}"></Run>
                                 <Run Text="-"></Run>
-                                <Run Text="{Binding kondisi}"></Run>
+                                <Run Text="{Binding KondisiString}"></Run>
                                 <LineBreak></LineBreak>
-                                <Run Text="{Binding nama}"></Run>
+                                <Run Text="{Binding Nama}"></Run>
                                 <LineBreak></LineBreak>
-                                <Run Text="{Binding lokasi}"></Run>
+                                <Run Text="{Binding Lokasi}"></Run>
                             </TextBlock>
                             <Button x:Name="Button_Ubah" Content="Ubah" Margin="100,30,0,0" Width="57" Height="22" Click="Button_Ubah_Click"/>
                             <Button x:Name="Button_Hapus" Content="Hapus" Margin="15,30,0,0" Width="57" Height="22" Click="Button_Hapus_Click"/>
@@ -35,7 +35,8 @@
                 </ListBox.ItemTemplate>
             </ListBox>
         </StackPanel>
-        <Button x:Name="Button_Tambah_Alat" Content="Tambah Alat" HorizontalAlignment="Left" Margin="393,283,0,0" VerticalAlignment="Top" Width="97" Click="Button_Tambah_Alat_Click"/>
+        <Button x:Name="Button_Tambah_Alat" Content="Tambah Alat" HorizontalAlignment="Left" Margin="390,283,0,0" VerticalAlignment="Top" Width="125" Click="Button_Tambah_Alat_Click"/>
+        <Button x:Name="Button_Tambah_Jenis_Alat" Content="Tambah Jenis Alat" HorizontalAlignment="Left" Margin="156,283,0,0" VerticalAlignment="Top" Width="125" Click="Button_Tambah_Jenis_Alat_Click"/>
 
     </Grid>
 </UserControl>

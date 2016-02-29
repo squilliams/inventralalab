@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Inventralalab.core;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -22,7 +23,7 @@ namespace Inventralalab.Pages
     /// </summary>
     public partial class ManajemenAlat : UserControl
     {
-        List<string> itemIds;
+        List<Alat> items;
         public ManajemenAlat()
         {
             InitializeComponent();
@@ -37,12 +38,18 @@ namespace Inventralalab.Pages
                         DataTable dataTable = new DataTable();
                         dataAdapter.Fill(dataTable);
 
-                        itemIds = new List<string>();
+                        items = new List<Alat>();
                         foreach (DataRow row in dataTable.Rows) {
-                            string id = row["id"].ToString();
-                            itemIds.Add(id);
+                            Alat alat = new Alat(
+                                (string)row["id"],
+                                (string)row["id_jenis"],
+                                (string)row["nama"],
+                                (bool)row["kondisi_alat"],
+                                (string)row["lokasi"]
+                                );
+                            items.Add(alat);
                         }
-                        listBox_Alat.ItemsSource = dataTable.DefaultView;
+                        listBox_Alat.ItemsSource = items;
                     }
                 }
             }
@@ -93,8 +100,8 @@ namespace Inventralalab.Pages
             var dataContext = button.DataContext;
             int index = listBox_Alat.Items.IndexOf(dataContext);
 
-            string inventory_id = itemIds[index];
-            Switcher.Switch(new EditAlat(inventory_id));
+            Alat alat = items[index];
+            Switcher.Switch(new EditAlat(alat));
         }
 
         private void Button_Hapus_Click(object sender, RoutedEventArgs e)
@@ -103,7 +110,7 @@ namespace Inventralalab.Pages
             var dataContext = button.DataContext;
             int index = listBox_Alat.Items.IndexOf(dataContext);
 
-            string inventory_id = itemIds[index];
+            string inventory_id = items[index].Id;
             MessageBoxResult messageBoxResult = MessageBox.Show("Apakah anda yakin?", "Konfirmasi Penghapusan", MessageBoxButton.YesNo);
             if (messageBoxResult == MessageBoxResult.Yes)
                 DeleteItem(inventory_id);
@@ -112,6 +119,9 @@ namespace Inventralalab.Pages
         private void Button_Tambah_Alat_Click(object sender, RoutedEventArgs e)
         {
             Switcher.Switch(new TambahAlat());
+        }
+        private void Button_Tambah_Jenis_Alat_Click(object sender, RoutedEventArgs e) {
+            Switcher.Switch(new TambahJenisAlat());
         }
     }
 }

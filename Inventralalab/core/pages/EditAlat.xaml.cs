@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
 using System.Data;
+using Inventralalab.core;
 
 namespace Inventralalab.Pages
 {
@@ -22,7 +23,6 @@ namespace Inventralalab.Pages
     /// </summary>
     public partial class EditAlat : UserControl
     {
-        string ItemId { get; set; }
         public  class KV {
             public KV(string key, int value) {
                 Key = key;
@@ -32,17 +32,22 @@ namespace Inventralalab.Pages
             public string Key { get; set; }
         }
         public List<KV> status;
-        public EditAlat(string id)
+        private Alat alat;
+        public EditAlat(Alat alat)
         {
             InitializeComponent();
+            this.alat = alat;
+
             status = new List<KV>();
             status.Add(new KV("Baik", 1));
             status.Add(new KV("Rusak", 0));
             comboBox_Status.ItemsSource = status;
             comboBox_Status.DisplayMemberPath = "Key";
             comboBox_Status.SelectedValuePath = "Value";
+            comboBox_Status.SelectedValue = (alat.KondisiAlat) ? 1 : 0;
 
-            ItemId = id;
+            textbox_Laboratorium.Text = alat.Lokasi;
+
             string query = "SELECT * FROM master_inventory_type";
             using (MySqlCommand cmd = new MySqlCommand(query, db.ConnectionManager.Connection)) {
                 try {
@@ -52,6 +57,7 @@ namespace Inventralalab.Pages
                         comboBox_Jenis_Barang.ItemsSource = dataSet.DefaultView;
                         comboBox_Jenis_Barang.DisplayMemberPath = dataSet.Columns["nama"].ToString();
                         comboBox_Jenis_Barang.SelectedValuePath = dataSet.Columns["id"].ToString();
+                        comboBox_Jenis_Barang.SelectedValue = alat.IdJenis;
                     }
                 }
                 catch (MySql.Data.MySqlClient.MySqlException ex) {
@@ -86,11 +92,15 @@ namespace Inventralalab.Pages
             string lokasi = textbox_Laboratorium.Text;
             int kondisiBarang = int.Parse(comboBox_Status.SelectedValue.ToString());
 
+            Console.WriteLine(jenisBarang);
+            Console.WriteLine(lokasi);
+            Console.WriteLine(kondisiBarang);
+
             string query = "UPDATE inventory SET id_jenis=@id_jenis, lokasi=@lokasi, kondisi_alat=@kondisi_alat WHERE id=@id";
             using (MySqlCommand cmd = new MySqlCommand(query, db.ConnectionManager.Connection)) {
                 cmd.Prepare();
 
-                cmd.Parameters.AddWithValue("@id", ItemId);
+                cmd.Parameters.AddWithValue("@id", alat.Id);
                 cmd.Parameters.AddWithValue("@id_jenis", jenisBarang);
                 cmd.Parameters.AddWithValue("@lokasi", lokasi);
                 cmd.Parameters.AddWithValue("@kondisi_alat", kondisiBarang);

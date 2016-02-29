@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Inventralalab.core;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -28,7 +29,7 @@ namespace Inventralalab.Pages
             RebindItems();
         }
 
-        List<string> itemIds;
+        List<Alat> items;
         private void RebindItems() {
             string query = "SELECT * FROM inventory JOIN borrowers ON inventralalab.inventory.id_peminjam = inventralalab.borrowers.id WHERE id_peminjam IS NOT NULL";
             try {
@@ -37,10 +38,17 @@ namespace Inventralalab.Pages
                         DataTable dataTable = new DataTable();
                         dataAdapter.Fill(dataTable);
 
-                        itemIds = new List<string>();
+                        items = new List<Alat>();
                         foreach (DataRow row in dataTable.Rows) {
-                            string id = row["id"].ToString();
-                            itemIds.Add(id);
+                            Alat alat = new Alat(
+                                (string)row["id"],
+                                (string)row["nama"],
+                                (DateTime?)row["tanggal_mulai"],
+                                (DateTime?)row["tanggal_selesai"],
+                                (bool)row["kondisi_alat"],
+                                (string)row["lokasi"]
+                                );
+                            items.Add(alat);
                         }
                         listbox_Peminjam.ItemsSource = dataTable.DefaultView;
                     }
@@ -71,9 +79,25 @@ namespace Inventralalab.Pages
             Switcher.Switch(new StatistikPeminjaman());
         }
 
-        private void Button_Ubah_Status_Click(object sender, RoutedEventArgs e)
+        private void Button_Selesai_Click(object sender, RoutedEventArgs e)
         {
+            Button button = sender as Button;
+            var dataContext = button.DataContext;
+            int index = listbox_Peminjam.Items.IndexOf(dataContext);
 
+            string inventory_id = items[index].Id;
+            string query = "SELECT * from inventory WHERE id = @id";
+            try {
+                using (MySqlCommand cmd = new MySqlCommand(query, db.ConnectionManager.Connection)) {
+                    using (MySqlDataAdapter dataAdapter = new MySqlDataAdapter(cmd)) {
+                        DataTable dataRow = new DataTable();
+                        dataAdapter.Fill(dataRow);
+                    }
+                }
+            }
+            catch (MySqlException ex) {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
